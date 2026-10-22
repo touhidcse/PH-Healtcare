@@ -1,4 +1,6 @@
+import { string } from "zod";
 import type { Role } from "../../../generated/prisma/browser";
+import { StringFieldRefInput } from "../../../generated/prisma/internal/prismaNamespace";
 
 export interface ILoginUserPayload {
 	email: string;
@@ -23,4 +25,14 @@ export interface IRequestUser {
 
 export interface IGoogleLoginPayload {
 	idToken: string;
+}
+
+export interface IForgotPasswordPayload {
+	email : string,
+}
+
+export interface IResetPasswordPayload {
+	email: string,
+	otp: string, 
+	newPassword: string
 }

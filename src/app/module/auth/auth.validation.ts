@@ -16,6 +16,11 @@ const PatientRegistrationZodShcema = z.object({
 		.regex(/[^A-Za-z0-9]/, "Password must contain one special character"),
 	patient: z.object({ contactNumber: z.string().optional() }).optional(),
 });
+const PatientEmailVerifyZodSchema = z.object({
+	email: z.email("Provide a valid email"),
+	otp: z.string().length(6)
+
+});
 
 const LoginZodSchema = z.object({
 	email: z.email(),
@@ -50,6 +55,7 @@ const ResetPasswordZodSchema = z.object({
 
 export const UserValidation = {
 	PatientRegistrationZodShcema,
+	PatientEmailVerifyZodSchema,
 	LoginZodSchema,
 	ForgetPasswordZodSchema,
 	ResetPasswordZodSchema
